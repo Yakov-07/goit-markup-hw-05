@@ -145,6 +145,7 @@ ul {
   margin-right: auto;
   width: 170px;
   height: 51px;
+  cursor: pointer;
 
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -264,6 +265,8 @@ ul {
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
   border-radius: 0px 0px 4px 4px;
   padding: 0px 0px 32px;
+
+  background-color: #fff;
 }
 
 .content-team:not(:last-child) {
@@ -333,12 +336,12 @@ footer {
   cursor: pointer;
 
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-  background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-  box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1)
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-button:hover,
-.portfolio-button:focus{
+.portfolio-button:focus {
   color: var(--backround-color-header);
   background-color: var(--primary-brand);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08),
@@ -412,6 +415,8 @@ p {
   /* justify-content: space-between; */
   margin-right: 24px;
   margin-bottom: 48px;
+
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .thumb {
@@ -428,9 +433,10 @@ p {
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.yas {
+.overlay-portfolio {
   position: relative;
   overflow: hidden;
+  height: 300px;
 }
 
 .test:nth-child(3n) {
@@ -508,16 +514,17 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .qwe:not(:last-child) {
   margin-right: 24px;
 }
 
-.qwe:hover {
-}
-
+.qwe:hover,
 .qwe:focus {
+  color: rgba(64, 75, 191, 1);
 }
 
 .Customers {
@@ -548,6 +555,7 @@ p {
   border-radius: 4px;
   width: 168px;
   height: 88px;
+  cursor: pointer;
 
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
     border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -559,13 +567,18 @@ p {
 
 .customers-logo:hover .icon-customers {
   fill: var(--primary-brand);
+  border-color: var(--primary-brand);
 }
 
 .customers-logo:focus-within {
   border-color: var(--primary-brand);
-  fill: var(--primary-brand);
   outline: 0;
   outline-offset: 0;
+}
+
+.customers-logo:focus-within .icon-customers {
+  fill: var(--primary-brand);
+  border-color: var(--primary-brand);
 }
 
 .content-customers {
@@ -629,11 +642,6 @@ p {
   outline-offset: 0;
 }
 
-/* .svg-icon-footer:focus {
-  background-color: #31d0aa;
-  outline: 0;
-  outline-offset: 0;
-} */
 
 /* modal */
 
@@ -670,4 +678,24 @@ p {
 
   margin-left: 360px;
   margin-top: 24px;
+}
+
+.link {
+  position: relative;
+}
+
+.current::after {
+  display: block;
+  position: absolute;
+  opacity: 1;
+  bottom: -140%;
+  width: 100%;
+  height: 4px;
+  background-color: #404bbf;
+  content: "";
+  border-radius: 2px;
+}
+
+.link.current {
+  color: #4d5ae5;
 }

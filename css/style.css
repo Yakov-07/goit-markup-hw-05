@@ -147,7 +147,7 @@ ul {
   height: 51px;
   cursor: pointer;
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -429,8 +429,25 @@ p {
   height: 100%;
   background-color: rgba(77, 90, 229, 0.5);
 
+  border: 0.5px solid #f4f4fd;
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08);
+
   transform: translateY(100%);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.text-thumb {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #f4f4fd;
+
+  margin-left: auto;
+  margin-top: auto;
+
+  position: absolute;
+  display: block;
 }
 
 .overlay-portfolio {
@@ -455,6 +472,12 @@ p {
 }
 
 .test:focus {
+  border: 0.5px solid #f4f4fd;
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+}
+
+.test:hover {
   border: 0.5px solid #f4f4fd;
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
@@ -632,7 +655,7 @@ p {
 }
 
 .svg-icon-footer:not(:last-child) {
-  margin-right: 24px;
+  margin-right: 16px;
 }
 
 .svg-icon-footer:hover,
@@ -642,19 +665,35 @@ p {
   outline-offset: 0;
 }
 
-
 /* modal */
+
+.backdrop {
+  background: rgba(46, 47, 66, 0.4);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  opacity: 1;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    backround 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
 }
 
+.backdrop.is-hidden .modal {
+  transform: translate(-50% -50%) scale(1.2);
+}
+
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1);
 
   min-width: 408px;
   min-height: 576px;
@@ -663,6 +702,8 @@ p {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .close {
